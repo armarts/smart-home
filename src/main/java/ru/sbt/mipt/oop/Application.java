@@ -1,17 +1,27 @@
 package ru.sbt.mipt.oop;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class Application {
+
+    private static Collection<EventProcessor> eventProcessors;
 
     public static void main(String... args) throws IOException {
         // считываем состояние дома из файла
         SmartHome smartHome = HomeReader.getHomeState("smart-home-1.js");
+        eventProcessors = new ArrayList<>();
+
+        eventProcessors.add(new LightEventProcessor());
+        eventProcessors.add(new DoorEventProcessor());
+
         // начинаем цикл обработки событий
         SensorEvent event = getNextSensorEvent();
         while (event != null) {
             System.out.println("Got event: " + event);
-            EventHandler.handler(smartHome, event);
+            for (EventProcessor eventProcessor:eventProcessors)
+                eventProcessor.eventProcessor(smartHome,event);
             event = getNextSensorEvent();
         }
     }
