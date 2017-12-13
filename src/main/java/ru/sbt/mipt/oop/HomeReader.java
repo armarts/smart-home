@@ -1,6 +1,7 @@
 package ru.sbt.mipt.oop;
 
 import com.google.gson.Gson;
+import com.sun.javaws.jnl.XMLFormat;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,7 +9,7 @@ import java.nio.file.Paths;
 
 public class HomeReader {
 
-    public static SmartHome getHomeState(String path) {
+    public static SmartHome getHomeStateFromJson(String path) {
         Gson gson = new Gson();
         String json;
         try  {
@@ -18,6 +19,10 @@ public class HomeReader {
             return null;
         }
         return gson.fromJson(json, SmartHome.class);
+    }
+
+    public static SmartHome getHomeStateFromXml(String path) {
+        return null;
     }
 
 }

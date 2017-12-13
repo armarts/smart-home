@@ -7,8 +7,9 @@ import java.util.Collection;
 public class Application {
 
     public static void main(String... args) throws IOException {
+        AlarmSystem alarmSystem = new AlarmSystem("garik");
         // считываем состояние дома из файла
-        SmartHome smartHome = HomeReader.getHomeState("smart-home-1.js");
+        SmartHome smartHome = HomeReader.getHomeStateFromJson("smart-home-1.js");
         Collection<EventProcessor> eventProcessors = new ArrayList<>();
 
         eventProcessors.add(new LightEventProcessor());
@@ -19,7 +20,7 @@ public class Application {
         while (event != null) {
             System.out.println("Got event: " + event);
             for (EventProcessor eventProcessor: eventProcessors)
-                eventProcessor.eventProcessor(smartHome,event);
+                eventProcessor.eventProcessor(smartHome, event);
             event = getNextSensorEvent();
         }
     }

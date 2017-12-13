@@ -7,6 +7,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class HomeSaver {
+
+    // Save Json format
     public static void saveJsonFormat(String jsonString) throws IOException {
         System.out.println(jsonString);
         Path path = Paths.get("output.js");
@@ -14,4 +16,6 @@ public class HomeSaver {
             writer.write(jsonString);
         }
     }
+
+    //TODO CSV, XML format saver
 }
