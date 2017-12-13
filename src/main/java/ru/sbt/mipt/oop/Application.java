@@ -1,13 +1,15 @@
 package ru.sbt.mipt.oop;
 
+import AlarmSystem.AlarmSystem;
+
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class Application {
 
-    public static void main(String... args) throws IOException {
-        AlarmSystem alarmSystem = new AlarmSystem("garik");
+    public static void main(String... args) throws IOException, InvocationTargetException, IllegalAccessException {
         // считываем состояние дома из файла
         SmartHome smartHome = HomeReader.getHomeStateFromJson("smart-home-1.js");
         Collection<EventProcessor> eventProcessors = new ArrayList<>();
