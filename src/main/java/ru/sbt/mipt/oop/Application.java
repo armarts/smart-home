@@ -1,7 +1,5 @@
 package ru.sbt.mipt.oop;
 
-import AlarmSystem.AlarmSystem;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -14,8 +12,7 @@ public class Application {
         SmartHome smartHome = HomeReader.getHomeStateFromJson("smart-home-1.js");
         Collection<EventProcessor> eventProcessors = new ArrayList<>();
 
-        eventProcessors.add(new LightEventProcessor());
-        eventProcessors.add(new DoorEventProcessor());
+        eventProcessors.add(new EventProcessorImpl());
 
         // начинаем цикл обработки событий
         SensorEvent event = getNextSensorEvent();

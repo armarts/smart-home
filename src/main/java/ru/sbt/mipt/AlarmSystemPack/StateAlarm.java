@@ -1,4 +1,4 @@
-package AlarmSystem;
+package ru.sbt.mipt.AlarmSystemPack;
 
 import ru.sbt.mipt.oop.SensorEvent;
 

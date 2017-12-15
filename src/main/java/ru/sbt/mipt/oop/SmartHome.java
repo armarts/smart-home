@@ -5,7 +5,7 @@ import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class SmartHome {
+public class SmartHome implements Actionable{
     Collection<Room> rooms;
 
     public SmartHome() {
@@ -22,5 +22,14 @@ public class SmartHome {
 
     public Collection<Room> getRooms() {
         return rooms;
+    }
+
+    @Override
+    public void doAction(Action action, SensorEvent event) {
+        action.execute(this, event);
+
+        for (Room room : rooms) {
+            room.doAction(action, event);
+        }
     }
 }

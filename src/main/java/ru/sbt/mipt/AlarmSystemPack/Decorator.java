@@ -1,6 +1,4 @@
-package AlarmSystem;
-
-import AlarmSystem.AlarmSystem;
+package ru.sbt.mipt.AlarmSystemPack;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

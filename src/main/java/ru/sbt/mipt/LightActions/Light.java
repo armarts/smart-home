@@ -1,6 +1,10 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.LightActions;
 
-public class Light {
+import ru.sbt.mipt.oop.Action;
+import ru.sbt.mipt.oop.Actionable;
+import ru.sbt.mipt.oop.SensorEvent;
+
+public class Light implements Actionable {
     private boolean isOn;
     private final String id;
 
@@ -19,5 +23,10 @@ public class Light {
 
     public void setOn(boolean on) {
         isOn = on;
+    }
+
+    @Override
+    public void doAction(Action action, SensorEvent event) {
+        action.execute(this, event);
     }
 }

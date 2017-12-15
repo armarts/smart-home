@@ -1,17 +1,17 @@
-package AlarmSystem;
+package ru.sbt.mipt.AlarmSystemPack;
 
 import ru.sbt.mipt.oop.SensorEvent;
 
-public class StateOff implements AlarmSystemState {
+public class StateOn implements AlarmSystemState {
 
     @Override
     public AlarmSystemState turnOn() {
-        return new StateWaitForPassword(this);
+        return this;
     }
 
     @Override
     public AlarmSystemState turnOff() {
-        return this;
+        return new StateWaitForPassword(this);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class StateOff implements AlarmSystemState {
 
     @Override
     public String toString() {
-        return "Off";
+        return "On";
     }
 }
 
