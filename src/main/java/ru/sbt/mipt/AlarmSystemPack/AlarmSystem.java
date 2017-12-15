@@ -5,7 +5,7 @@ import ru.sbt.mipt.oop.SensorEvent;
 public class AlarmSystem {
     private AlarmSystemState alarmSystemState;
     private String secret;
-    
+
 
     public AlarmSystem(String password) {
         alarmSystemState = new StateOff();
