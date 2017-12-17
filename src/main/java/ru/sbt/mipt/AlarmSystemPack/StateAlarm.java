@@ -28,4 +28,14 @@ public class StateAlarm implements AlarmSystemState {
     public String toString() {
         return "Alarm";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        AlarmSystemState rhs = (AlarmSystemState) obj;
+
+        if (rhs instanceof StateAlarm)
+            return true;
+
+        return false;
+    }
 }

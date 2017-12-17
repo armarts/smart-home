@@ -7,7 +7,7 @@ public class LightOff implements Action {
     @Override
     public void execute(Object object, SensorEvent event) {
         if (object instanceof Light) {
-            if (event.getObjectId() == ((Light) object).getId())
+            if (event.getObjectId().equals(((Light) object).getId()))
                 ((Light) object).setOn(false);
         }
     }

@@ -28,5 +28,15 @@ public class StateOff implements AlarmSystemState {
     public String toString() {
         return "Off";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        AlarmSystemState rhs = (AlarmSystemState) obj;
+
+        if (rhs instanceof StateOff)
+            return true;
+
+        return false;
+    }
 }
 

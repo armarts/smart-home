@@ -3,6 +3,7 @@ package ru.sbt.mipt.AlarmSystemPack;
 import ru.sbt.mipt.oop.SensorEvent;
 
 public class AlarmSystem {
+
     private AlarmSystemState alarmSystemState;
     private String secret;
 
@@ -10,6 +11,10 @@ public class AlarmSystem {
     public AlarmSystem(String password) {
         alarmSystemState = new StateOff();
         secret = password;
+    }
+
+    public AlarmSystemState getAlarmSystemState() {
+        return alarmSystemState;
     }
 
     public void turnOn() {
@@ -32,4 +37,5 @@ public class AlarmSystem {
     public String toString() {
         return "State = " + alarmSystemState.toString();
     }
+
 }

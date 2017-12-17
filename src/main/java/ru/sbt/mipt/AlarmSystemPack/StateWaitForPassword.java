@@ -4,6 +4,10 @@ import ru.sbt.mipt.oop.SensorEvent;
 
 public class StateWaitForPassword implements AlarmSystemState {
 
+    public AlarmSystemState getPrevious() {
+        return previous;
+    }
+
     private AlarmSystemState previous;
 
     public StateWaitForPassword(AlarmSystemState alarmSystemState) {
@@ -47,5 +51,17 @@ public class StateWaitForPassword implements AlarmSystemState {
     @Override
     public String toString() {
         return "Waite For Password";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        AlarmSystemState rhs = (AlarmSystemState) obj;
+
+        if (rhs instanceof StateWaitForPassword) {
+            if (((StateWaitForPassword) rhs).getPrevious() == previous)
+                return true;
+        }
+
+        return false;
     }
 }
